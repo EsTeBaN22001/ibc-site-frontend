@@ -1,0 +1,61 @@
+@use 'variables' as v;
+
+/** Media Queries **/
+@mixin phone {
+	@media (max-width: v.$phone) {
+			@content;
+	}
+}
+@mixin tablet {
+	@media (max-width: v.$tablet) {
+			@content;
+	}
+}
+@mixin desktop {
+	@media (max-width: v.$desktop) {
+			@content;
+	}
+}
+
+@mixin breakpointDesktop {
+	@media (max-width: v.$breakpointDesktop) {
+			@content;
+	}
+}
+
+@mixin breakpointPhone {
+	@media (max-width: v.$breakpointPhone) {
+			@content;
+	}
+}
+
+@mixin breakpointSmartWatch {
+	@media (max-width: v.$breakpointSmartWatch) {
+			@content;
+	}
+}
+
+
+@mixin button($bgColor, $textColor) {
+	background-color: $bgColor;
+	padding: 1rem 3rem;
+	color: $textColor;
+	font-size: 2rem;
+	display: inline-block;
+	border: none;
+	transition-property: background-color;
+	transition-duration: .2s;
+	text-align: center;
+	margin: 1rem 0rem;
+	border-radius: 2.2rem;
+
+	@include tablet {
+		width: auto;
+	}
+	&:hover {
+		background-color: darken( $bgColor, 10% );
+		cursor: pointer;
+	}
+
+	@content;
+}
