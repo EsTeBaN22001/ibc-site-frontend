@@ -1,5 +1,5 @@
-@use 'normalize';
-@use 'variables';
-@use 'mixins';
-@use 'globals';
-@use 'typography';
+@import 'variables';
+@import 'normalize';
+@import 'mixins';
+@import 'globals';
+@import 'typography';

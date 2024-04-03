@@ -1,0 +1,37 @@
+- Inicio
+  - Banner principal - LISTO
+  - Visión - LISTO
+  - Algún versículo - LISTO
+  - Carrousel Sección Reuniones y actividades - LISTO
+    - reunión general - LISTO
+    - generación impacto - LISTO
+    - preadolescentes - LISTO
+    - adolescentes - LISTO
+    - jóvenes - LISTO
+    - grupos pequeños - LISTO
+    - grupo hombres - LISTO
+    - grupo mujeres - LISTO
+    - taller de crecimiento - LISTO
+    - celebremos - LISTO
+  - Pastores - LISTO
+  - Ultimas transmisiones
+  - Contacto - redes - links - direccion / footer
+    - Redes sociales
+      - Instragram
+      - Youtube
+      - Facebook
+    - dirección
+    - Comunidad whatsapp
+
+- Eventos
+  - Agenda de actividades
+  - Imágenes de eventos
+- Ministerios
+  - Reuniones pre, adoles, jóvenes
+  - celebremos
+  - Templo móvil
+  - El patio
+  - ...
+- Mensajes / prédicas
+  - Api YT
+- Contacto

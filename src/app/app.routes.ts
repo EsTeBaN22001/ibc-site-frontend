@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router'
-import { IndexComponent } from './components/index/index.component'
 
 export const routes: Routes = [
   {
     path: '',
-    component: IndexComponent
+    loadChildren: () => import('./index/index.routes').then(m => m.routes)
+    // loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule)
   }
 ]

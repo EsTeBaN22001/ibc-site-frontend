@@ -1,8 +1,11 @@
 // Fuentes
 // @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-// $principalFont: 'Mooli', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carattere&display=swap');
 $principalFont: 'Montserrat', sans-serif;
+$cursiveFont: 'Dancing Script', cursive;
+$cursiveFont2: 'Carattere', cursive;
 
 // Tamaño de Media Queries
 $breakpointSmartWatch: 320px;
@@ -14,13 +17,15 @@ $desktop: 1024px;
 
 // Colores
 // $principalColor: #3A6073;
-$principalColor: #25386c;
+$principalColor: #0788c9;
+$secondaryColor: #25386c;
+$terciaryColor: #68b9ff;
 $blue: #0da6f3;
 $red: #cb0000;
 $green: #329f00;
 $black: #000000;
 $bgColor: #e2e2e2;
-$bgSection: #ffffff;
+$bgSection: $principalColor;
 $lightGray: #e1e1e1;
 $gray: #b8b8b8;
 $darkGray: #232323;
@@ -35,3 +40,5 @@ $gradientColor2: #0089ad;
 // Gradient
 $gradient: linear-gradient(to right, $gradientColor1, $gradientColor2);
 $gradientWebkit: -webkit-linear-gradient(to right, $gradientColor1, $gradientColor2);
+$gradientInverted: linear-gradient(to left, $gradientColor1, $gradientColor2);
+$gradientInvertedWebkit: -webkit-linear-gradient(to left, $gradientColor1, $gradientColor2);

@@ -1,0 +1,46 @@
+@use 'variables' as v;
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.504);
+    mix-blend-mode: overlay;
+  }
+  filter: grayscale(40%);
+
+  .banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    max-width: 90rem;
+
+    img {
+      width: 80%;
+    }
+
+    p {
+      margin-top: 7rem;
+      // color: v.$terciaryColor;
+      color: #00bbff;
+      font-size: 8rem;
+      font-family: v.$cursiveFont;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+}

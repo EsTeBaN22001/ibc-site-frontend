@@ -46,9 +46,14 @@ body {
 .in-section {
   padding: 8rem 0;
 }
+.in-section-sm {
+  padding: 4rem 0;
+}
 .bg-section {
-  background-color: v.$bgSection;
-  padding: 20rem 0;
+  background: v.$gradient;
+}
+.bg-section-inverted {
+  background: v.$gradientInverted;
 }
 
 a {
@@ -103,7 +108,10 @@ img {
   background: v.$gradient;
 }
 
-.ocult {
+.hide {
   opacity: 0;
+  visibility: collapse;
+  height: 0;
+  width: 0;
   overflow: hidden;
 }
