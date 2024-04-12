@@ -12,7 +12,7 @@ export const indexCarrouselItems: indexCarrouselItem[] = [
     text: '¡Únete a nosotros en nuestra reunión general de la iglesia! Es un momento especial donde nos reunimos como comunidad para adorar y crecer juntos en nuestra fe. Con alabanza y enseñanzas edificantes, cada reunión es una oportunidad para fortalecer nuestra conexión con Dios y con los demás miembros de la iglesia.',
     urlImg: 'assets/carrousel-index/reunion-general2.webp',
     imgAlt: 'Imágen de reunión la reunión general',
-    date: 'Domingo 10hs | 20hs'
+    date: 'Domingo 10hs | 19hs'
   },
   {
     title: 'Celebremos la recuperación',

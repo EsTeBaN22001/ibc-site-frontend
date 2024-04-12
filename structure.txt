@@ -1,4 +1,4 @@
-- Inicio
+- Inicio - LISTO
   - Banner principal - LISTO
   - Visión - LISTO
   - Algún versículo - LISTO
@@ -15,7 +15,7 @@
     - celebremos - LISTO
   - Pastores - LISTO
   - Ultimas transmisiones
-  - Contacto - redes - links - direccion / footer
+  - Contacto - redes - links - direccion / footer - LISTO
     - Redes sociales
       - Instragram
       - Youtube
