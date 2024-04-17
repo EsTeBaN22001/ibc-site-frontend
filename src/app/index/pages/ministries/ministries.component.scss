@@ -1,0 +1,97 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.ministries-container {
+  h1 {
+    margin: 0;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.5rem;
+    color: v.$gray;
+  }
+
+  .ministries {
+    .ministry {
+      display: grid;
+      grid-template-columns: 1.5fr 2.5fr;
+      column-gap: 2rem;
+
+      .img-container,
+      .content {
+        height: 25rem;
+        // height: fit-content;
+      }
+
+      .img-container {
+        border-radius: 2rem;
+        height: 100%;
+        overflow: hidden;
+
+        img {
+          border-radius: 2rem;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: scale(1.3) rotate(10deg);
+            filter: saturate(1.2);
+          }
+        }
+      }
+
+      .content {
+        margin-top: 2rem;
+        h3,
+        p {
+          text-align: start;
+        }
+
+        h3 {
+          margin-bottom: 1rem;
+        }
+
+        p {
+          font-size: 1.7rem;
+        }
+      }
+
+      &.inverted {
+        grid-template-columns: 2.5fr 1.5fr;
+        .img-container {
+          img {
+            &:hover {
+              transform: scale(1.3) rotate(-10deg);
+            }
+          }
+        }
+
+        .content {
+          h3,
+          p {
+            text-align: end;
+          }
+        }
+      }
+
+      @include m.tablet {
+        display: flex !important;
+        flex-direction: column;
+
+        &.inverted {
+          flex-direction: column-reverse;
+        }
+
+        .content {
+          h3,
+          p {
+            text-align: center !important;
+          }
+        }
+      }
+    }
+  }
+}

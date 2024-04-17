@@ -30,7 +30,6 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.ytService.getLast3Videos().subscribe(res => {
       this.ytVideoItems = res.items
-      console.log(res)
     })
   }
 }

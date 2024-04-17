@@ -29,6 +29,9 @@ dependencies:
   '@angular/router':
     specifier: ^17.3.0
     version: 17.3.1(@angular/common@17.3.1)(@angular/core@17.3.1)(@angular/platform-browser@17.3.1)(rxjs@7.8.1)
+  ngx-lightbox:
+    specifier: ^3.0.0
+    version: 3.0.0(@types/file-saver@2.0.7)
   normalize.css:
     specifier: ^8.0.1
     version: 8.0.1
@@ -2595,6 +2598,10 @@ packages:
       '@types/serve-static': 1.15.5
     dev: true
 
+  /@types/file-saver@2.0.7:
+    resolution: {integrity: sha512-dNKVfHd/jk0SkR/exKGj2ggkB45MAkzvWCaqLUUgkyjITkGNzH8H+yUwr+BLJUBjZOe9w8X3wgmXhZDRg1ED6A==}
+    dev: false
+
   /@types/http-errors@2.0.4:
     resolution: {integrity: sha512-D0CFMMtydbJAegzOyHjtiKPLlvnm3iTZyZRSZoLq2mRhDdmLfIWOCYPfQJ4cu2erKghU++QvjcUjp/5h7hESpA==}
     dev: true
@@ -4044,6 +4051,10 @@ packages:
       escape-string-regexp: 1.0.5
     dev: true
 
+  /file-saver@2.0.5:
+    resolution: {integrity: sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==}
+    dev: false
+
   /fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
     engines: {node: '>=8'}
@@ -5340,6 +5351,26 @@ packages:
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
+
+  /ngx-filesaver@14.0.0(@types/file-saver@2.0.7)(file-saver@2.0.5):
+    resolution: {integrity: sha512-YnSbruOprSpcXZiuhnJ+AannRnSqRWiL0HIlDdwPd48DZYpuU0BTvSNmFj5oFbwLA0RFoOv2EkgedW4k2DEpYA==}
+    peerDependencies:
+      '@types/file-saver': ^2.0.0
+      file-saver: ^2.0.0
+    dependencies:
+      '@types/file-saver': 2.0.7
+      file-saver: 2.0.5
+      tslib: 2.6.2
+    dev: false
+
+  /ngx-lightbox@3.0.0(@types/file-saver@2.0.7):
+    resolution: {integrity: sha512-gKLy0R3SbbzHkDnAINtT3HFC71XVd86+dkP3LBeKrvjngxB6wMABfY73fF5IGsu9HfKQUN2Ni2Nx6s12xNwXow==}
+    dependencies:
+      file-saver: 2.0.5
+      ngx-filesaver: 14.0.0(@types/file-saver@2.0.7)(file-saver@2.0.5)
+    transitivePeerDependencies:
+      - '@types/file-saver'
+    dev: false
 
   /nice-napi@1.0.2:
     resolution: {integrity: sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA==}

@@ -118,23 +118,12 @@
 <section class="container-sm section">
   <h2>Imágenes</h2>
   <div class="images-container">
+
+    @for (image of albums; track image; let i = $index){
     <div class="image">
-      <img src="assets/carrousel-index/grupo-hombres.webp" alt="">
+      <img [src]="image.src" (click)="open(i)" />
     </div>
-    <div class="image">
-      <img src="assets/carrousel-index/grupo-hombres.webp" alt="">
-    </div>
-    <div class="image">
-      <img src="assets/carrousel-index/grupo-hombres.webp" alt="">
-    </div>
-    <div class="image">
-      <img src="assets/carrousel-index/grupo-hombres.webp" alt="">
-    </div>
-    <div class="image">
-      <img src="assets/carrousel-index/grupo-hombres.webp" alt="">
-    </div>
-    <div class="image">
-      <img src="assets/carrousel-index/grupo-hombres.webp" alt="">
-    </div>
+    }
+
   </div>
 </section>

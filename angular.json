@@ -24,7 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles.scss", "./node_modules/ngx-lightbox/lightbox.css"],
             "stylePreprocessorOptions": {
               "includePaths": ["src/global-styles"]
             },
