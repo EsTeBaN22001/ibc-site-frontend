@@ -1,0 +1,64 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  align-content: stretch;
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 2rem;
+  }
+
+  .card {
+    -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-evenly;
+    align-items: center;
+    row-gap: 2rem;
+    width: 25rem;
+    height: 100%;
+
+    @include m.tablet {
+      width: 80%;
+    }
+
+    .icon-container {
+      font-size: 7rem;
+      color: v.$principalColor;
+    }
+
+    p {
+      font-size: 1.5rem;
+      text-align: center;
+      color: v.$darkGray;
+    }
+  }
+}
+
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  iframe {
+    border-radius: 2rem;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.75);
+
+    @include m.tablet {
+      width: 90%;
+    }
+  }
+}

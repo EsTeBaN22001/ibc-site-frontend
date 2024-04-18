@@ -28,6 +28,6 @@ export const bannerItems: BannerItem[] = [
   {
     url: '/contacto',
     urlImg: '/assets/banner-index.webp',
-    text: 'Encuentranos!'
+    text: 'Contacto!'
   }
 ]

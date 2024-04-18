@@ -12,8 +12,8 @@ export class EventsComponent {
   albums: any = []
 
   constructor(private lightbox: Lightbox) {
-    for (let i = 1; i <= 4; i++) {
-      const src = 'assets/carrousel-index/grupo-hombres.webp'
+    for (let i = 0; i <= 5; i++) {
+      const src = 'assets/ministries/grupo-hombres.webp'
       const caption = 'Image Caption'
       const album = {
         src: src,
