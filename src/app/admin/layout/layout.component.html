@@ -1,0 +1,41 @@
+<div class="main">
+  <aside class="sidebar-container">
+    <a [routerLink]="['/admin']" class="logo-container">
+      <div class="img-container">
+        <img src="assets/logo-ibc.png" alt="logo ibc">
+      </div>
+      <span class="icon-container" (click)="toggleShowMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </span>
+    </a>
+    <ul class="options-list" [ngClass]="{show: showMenu}">
+      <li class="option">
+        <a class="link" [routerLink]="['/admin']">
+          <span class="icon-container">
+            <i class="fa-solid fa-house"></i>
+          </span>
+          <p>Inicio</p>
+        </a>
+      </li>
+      <li class="option">
+        <a class="link" [routerLink]="['eventos']">
+          <span class="icon-container">
+            <i class="fa-solid fa-calendar-days"></i>
+          </span>
+          <p>Eventos</p>
+        </a>
+      </li>
+      <li class="option">
+        <a class="link" [routerLink]="['eventos']">
+          <span class="icon-container">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </span>
+          <p>Cerrar sesión</p>
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
