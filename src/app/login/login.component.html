@@ -1,6 +1,9 @@
 <main class="main-background">
   <form novalidate [formGroup]="form" (ngSubmit)="login()">
-    <h3>Iniciar sesión</h3>
+    <!-- <h3>Iniciar sesión</h3> -->
+    <div class="logo-container">
+      <img class="logo" src="assets/logo-ibc.png" alt="">
+    </div>
 
     <label for="username">Usuario</label>
     <input type="text" placeholder="Ingrese su usuario" formControlName="username" name="username">
@@ -23,9 +26,9 @@
     }
 
     <button>Iniciar sesión</button>
-    <div class="logo-container">
+    <!-- <div class="logo-container">
       <img class="logo" src="assets/logo-ibc.png" alt="">
-    </div>
+    </div> -->
   </form>
 
 </main>

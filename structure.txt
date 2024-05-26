@@ -3,18 +3,18 @@
   - Visión - LISTO
   - Algún versículo - LISTO
   - Carrousel Sección Reuniones y actividades - LISTO
-    - reunión general - LISTO
-    - generación impacto - LISTO
-    - preadolescentes - LISTO
-    - adolescentes - LISTO
-    - jóvenes - LISTO
-    - grupos pequeños - LISTO
-    - grupo hombres - LISTO
-    - grupo mujeres - LISTO
-    - taller de crecimiento - LISTO
-    - celebremos - LISTO
+    - reunión general
+    - generación impacto
+    - preadolescentes
+    - adolescentes
+    - jóvenes
+    - grupos pequeños
+    - grupo hombres
+    - grupo mujeres
+    - taller de crecimiento
+    - celebremos
   - Pastores - LISTO
-  - Ultimas transmisiones
+  - Ultimas transmisiones - LISTO
   - Contacto - redes - links - direccion / footer - LISTO
     - Redes sociales
       - Instragram
@@ -23,28 +23,21 @@
     - dirección
     - Comunidad whatsapp
 
-- Eventos
+- Eventos - LISTO
   - Agenda de actividades
   - Imágenes de eventos
-- Ministerios
-  - Reuniones pre, adoles, jóvenes
+- Ministerios - LISTO
+  - GI
+  - preadolescentes
+  - adolescentes
+  - jóvenes
   - celebremos
+  - Grupos pequeños
+  - Taller de crecimiento
+  - Casa de la mujer
+  - Sanidad interior
+  - Liberación
   - Templo móvil
-  - El patio
-  - ...
 - Mensajes / prédicas
   - Api YT
 - Contacto
-
-MINISTERIOS
-- GI
-- preadolescentes
-- adolescentes
-- jóvenes
-- celebremos
-- Grupos pequeños
-- Taller de crecimiento
-- Casa de la mujer
-- Sanidad interior
-- Liberación
-- Templo móvil
