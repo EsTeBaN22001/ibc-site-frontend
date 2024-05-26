@@ -43,6 +43,13 @@ body {
     margin: 5rem auto;
   }
 }
+.section-sm {
+  margin: 5rem auto;
+
+  @include m.tablet {
+    margin: 2.5rem auto;
+  }
+}
 .in-section {
   padding: 8rem 0;
 }

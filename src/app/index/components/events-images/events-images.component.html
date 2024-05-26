@@ -1,0 +1,9 @@
+<div class="images-container">
+
+  @for (image of albums; track image; let i = $index){
+  <div class="image">
+    <img [src]="image.src" (click)="open(i)" />
+  </div>
+  }
+
+</div>
