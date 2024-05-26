@@ -28,6 +28,7 @@ export class TokenService {
     }
 
     const decodeToken = jwtDecode<JwtPayload>(token)
+    console.log(decodeToken)
 
     if (decodeToken && decodeToken?.exp) {
       const tokenDate = new Date(0)
