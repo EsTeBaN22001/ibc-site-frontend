@@ -1,0 +1,95 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.main-background {
+  width: 100vw;
+  height: 100vh;
+  background: v.$gradient;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  height: 520px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  // border: 2px solid rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 0px 0px 64px -19px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 64px -19px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 64px -19px rgba(0, 0, 0, 0.75);
+  padding: 50px 35px;
+}
+form * {
+  color: #ffffff;
+  // font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+form h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+input {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  border: 0.2rem solid transparent;
+  transition: all 0.3s ease;
+
+  &:focus {
+    border: 0.2rem solid white;
+  }
+}
+::placeholder {
+  color: #e5e5e5;
+}
+button {
+  margin-top: 50px;
+  width: 100%;
+  background-color: v.$principalColor;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
+  .logo {
+    width: 10rem;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+.error-alert {
+  color: lighten(v.$red, 40%) !important;
+  font-size: 1.3rem;
+  // font-weight: bold;
+  margin-top: 1rem;
+}

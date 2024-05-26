@@ -1,1 +1,31 @@
-<p>login works!</p>
+<main class="main-background">
+  <form novalidate [formGroup]="form" (ngSubmit)="login()">
+    <h3>Iniciar sesión</h3>
+
+    <label for="username">Usuario</label>
+    <input type="text" placeholder="Ingrese su usuario" formControlName="username" name="username">
+
+    @if (form.controls.username.touched && form.controls.username.invalid &&
+    form.controls.username.hasError('required')) {
+    <p class="error-alert">El usuario es obligatorio</p>
+    }
+
+    <label for="password">Contraseña</label>
+    <input type="password" placeholder="Ingrese su contraseña" formControlName="password" name="password">
+
+    @if (form.controls.password.touched && form.controls.password.invalid &&
+    form.controls.password.hasError('required')){
+    <p class="error-alert">La contraseña es obligatoria</p>
+    }
+
+    @if(status === 'failed'){
+    <p class="error-alert">Credenciales inválidas</p>
+    }
+
+    <button>Iniciar sesión</button>
+    <div class="logo-container">
+      <img class="logo" src="assets/logo-ibc.png" alt="">
+    </div>
+  </form>
+
+</main>

@@ -29,6 +29,9 @@ dependencies:
   '@angular/router':
     specifier: ^17.3.0
     version: 17.3.1(@angular/common@17.3.1)(@angular/core@17.3.1)(@angular/platform-browser@17.3.1)(rxjs@7.8.1)
+  jwt-decode:
+    specifier: ^4.0.0
+    version: 4.0.0
   ngx-lightbox:
     specifier: ^3.0.0
     version: 3.0.0(@types/file-saver@2.0.7)
@@ -44,6 +47,9 @@ dependencies:
   tslib:
     specifier: ^2.3.0
     version: 2.6.2
+  typescript-cookie:
+    specifier: ^1.0.6
+    version: 1.0.6
   zone.js:
     specifier: ~0.14.3
     version: 0.14.4
@@ -4843,6 +4849,11 @@ packages:
     engines: {'0': node >= 0.2.0}
     dev: true
 
+  /jwt-decode@4.0.0:
+    resolution: {integrity: sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==}
+    engines: {node: '>=18'}
+    dev: false
+
   /karma-chrome-launcher@3.2.0:
     resolution: {integrity: sha512-rE9RkUPI7I9mAxByQWkGJFXfFD6lE4gC5nPuZdobf/QdTEJI6EU4yIay/cfU/xV4ZxlM5JiTv7zWYgA64NpS5Q==}
     dependencies:
@@ -6824,6 +6835,11 @@ packages:
   /typed-assert@1.0.9:
     resolution: {integrity: sha512-KNNZtayBCtmnNmbo5mG47p1XsCyrx6iVqomjcZnec/1Y5GGARaxPs6r49RnSPeUP3YjNYiU9sQHAtY4BBvnZwg==}
     dev: true
+
+  /typescript-cookie@1.0.6:
+    resolution: {integrity: sha512-s+BZr7/9BUG6Kg7jGGcOY/4XJcP+iZRFdF3q4FPTfRSP83ivLWF94OcH8PrzGmnS8Ab9qP7ENu/ikLwNFsIafA==}
+    engines: {node: '>=14'}
+    dev: false
 
   /typescript@5.4.3:
     resolution: {integrity: sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==}
