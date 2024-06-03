@@ -1,2 +1,16 @@
 @use 'variables' as v;
 @use 'mixins' as m;
+
+.mat-elevation-z8 {
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+tr[mat-header-row] {
+  background-color: v.$principalColor;
+  color: v.$white;
+}
+
+td {
+  text-align: center;
+}
