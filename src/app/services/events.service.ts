@@ -17,4 +17,10 @@ export class EventsService {
       headers: { Authorization: `Bearer ${this.tokenService.getToken()}` }
     })
   }
+
+  createEvent(event: Event) {
+    return this.http.post<Event>(`${this.baseUrl}/create`, event, {
+      headers: { Authorization: `Bearer ${this.tokenService.getToken()}` }
+    })
+  }
 }

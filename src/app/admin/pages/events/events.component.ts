@@ -5,11 +5,12 @@ import { EventsService } from '../../../services/events.service'
 import { Event } from '../../../interfaces/event'
 import { CommonModule } from '@angular/common'
 import { TimePipe } from '../../../pipes/time.pipe'
+import { RouterLink } from '@angular/router'
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule, CommonModule, TimePipe],
+  imports: [MatTableModule, MatPaginatorModule, CommonModule, TimePipe, RouterLink],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss'
 })

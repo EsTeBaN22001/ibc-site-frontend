@@ -4,13 +4,17 @@
 .mat-elevation-z8 {
   border-radius: 2rem;
   overflow: hidden;
+
+  tr[mat-header-row] {
+    background-color: v.$principalColor;
+    color: v.$white;
+  }
+
+  td {
+    text-align: center;
+  }
 }
 
-tr[mat-header-row] {
-  background-color: v.$principalColor;
-  color: v.$white;
-}
-
-td {
-  text-align: center;
+.create-event-button {
+  @include m.button(v.$principalColor, v.$white);
 }

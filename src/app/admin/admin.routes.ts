@@ -2,6 +2,7 @@ import { Routes } from '@angular/router'
 import { LayoutComponent } from './layout/layout.component'
 import { IndexComponent } from './pages/index/index.component'
 import { EventsComponent } from './pages/events/events.component'
+import { CreateEventsComponent } from './pages/create-events/create-events.component'
 
 export const routes: Routes = [
   {
@@ -13,8 +14,12 @@ export const routes: Routes = [
         component: IndexComponent
       },
       {
-        path: 'editar-eventos',
+        path: 'eventos',
         component: EventsComponent
+      },
+      {
+        path: 'eventos/crear',
+        component: CreateEventsComponent
       }
     ]
   }

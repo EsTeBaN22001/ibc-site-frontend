@@ -222,7 +222,6 @@
 
         a {
           @include m.button(v.$principalColor, v.$white);
-          border-radius: 1rem;
         }
       }
     }
