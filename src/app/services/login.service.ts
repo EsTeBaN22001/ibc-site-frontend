@@ -25,4 +25,8 @@ export class LoginService {
         })
       )
   }
+
+  logout() {
+    this.tokenService.removeToken()
+  }
 }

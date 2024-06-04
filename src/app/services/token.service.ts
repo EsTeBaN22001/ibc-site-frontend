@@ -9,7 +9,7 @@ export class TokenService {
   constructor() {}
 
   saveToken(token: string) {
-    setCookie('token', token, { expires: 365, path: '/' })
+    setCookie('token', token)
   }
 
   getToken() {

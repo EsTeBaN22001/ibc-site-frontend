@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router'
 import localeEsAr from '@angular/common/locales/es-AR'
 import { registerLocaleData } from '@angular/common'
 import { MAT_DATE_LOCALE } from '@angular/material/core'
+import { HTTP_INTERCEPTORS } from '@angular/common/http'
+import { tokenInterceptor } from './interceptors/token.interceptor'
 
 registerLocaleData(localeEsAr, 'es-AR')
 
