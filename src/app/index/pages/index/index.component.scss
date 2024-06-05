@@ -21,7 +21,6 @@
     color: v.$white;
     font-weight: 600;
     font-size: 7rem;
-    font-family: v.$cursiveFont2;
     text-align: center;
   }
 
@@ -31,8 +30,8 @@
     text-align: center;
     color: v.$white;
     font-size: 4rem;
-    font-family: v.$cursiveFont2;
     font-weight: 300;
+    font-family: v.$cursiveFont2;
   }
 }
 
@@ -157,13 +156,11 @@
         color: v.$white;
         font-size: 5rem;
         font-weight: bold;
-        font-family: v.$cursiveFont2;
         text-align: center;
       }
 
       span {
         font-size: 3rem;
-        font-family: v.$cursiveFont2;
         color: #cccccc;
       }
     }
