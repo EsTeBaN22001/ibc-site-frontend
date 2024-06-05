@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
 import { RouterLink, RouterOutlet } from '@angular/router'
+import { LoginService } from '../../services/login.service'
 
 @Component({
   selector: 'app-layout',
@@ -12,7 +13,14 @@ import { RouterLink, RouterOutlet } from '@angular/router'
 export class LayoutComponent {
   showMenu: boolean = false
 
+  constructor(private loginService: LoginService) {}
+
   toggleShowMenu() {
     this.showMenu = !this.showMenu
+  }
+
+  logout() {
+    this.loginService.logout()
+    window.location.reload()
   }
 }
