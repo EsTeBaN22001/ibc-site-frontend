@@ -1,10 +1,8 @@
 import { Component, LOCALE_ID } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
 import localeEsAr from '@angular/common/locales/es-AR'
-import { registerLocaleData } from '@angular/common'
+import { IMAGE_CONFIG, registerLocaleData } from '@angular/common'
 import { MAT_DATE_LOCALE } from '@angular/material/core'
-import { HTTP_INTERCEPTORS } from '@angular/common/http'
-import { tokenInterceptor } from './interceptors/token.interceptor'
 
 registerLocaleData(localeEsAr, 'es-AR')
 
@@ -14,7 +12,14 @@ registerLocaleData(localeEsAr, 'es-AR')
   imports: [RouterOutlet],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-AR' },
-    { provide: MAT_DATE_LOCALE, useValue: 'es-AR' }
+    { provide: MAT_DATE_LOCALE, useValue: 'es-AR' },
+    {
+      provide: IMAGE_CONFIG,
+      useValue: {
+        disableImageSizeWarning: false,
+        disableImageLazyLoadWarning: false
+      }
+    }
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

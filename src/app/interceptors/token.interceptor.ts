@@ -26,7 +26,6 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
       return next(authRequest).pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.status === 401) {
-            // Redirigir al login si se recibe un 401
             loginService.logout()
             router.navigate(['/login'])
           }

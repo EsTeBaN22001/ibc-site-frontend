@@ -15,7 +15,7 @@ import { RouterLink } from '@angular/router'
   styleUrl: './events.component.scss'
 })
 export class EventsComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['Título', 'Fecha inicio', 'Fecha fin', 'Hora inicio', 'Hora fin', 'Ubicación', 'Precio']
+  displayedColumns: string[] = ['Título', 'Fecha inicio', 'Hora inicio', 'Editar', 'Eliminar']
   events: Event[] = []
   dataSource = new MatTableDataSource<Event>(this.events)
 
@@ -33,5 +33,6 @@ export class EventsComponent implements AfterViewInit, OnInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator
     this.paginator._intl.itemsPerPageLabel = 'Eventos por página'
+    this.paginator._intl.getRangeLabel = (page: number, pageSize: number, length: number) => ''
   }
 }

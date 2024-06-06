@@ -8,6 +8,10 @@
   tr[mat-header-row] {
     background-color: v.$principalColor;
     color: v.$white;
+
+    th {
+      text-align: center;
+    }
   }
 
   td {
@@ -17,4 +21,21 @@
 
 .create-event-button {
   @include m.button(v.$principalColor, v.$white);
+}
+
+.edit-event-button {
+  @include m.button(v.$blue, v.$white);
+}
+
+.delete-event-button {
+  @include m.button(v.$red, v.$white);
+}
+
+.edit-event-button,
+.delete-event-button {
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 1rem;
+  padding: 1rem;
 }

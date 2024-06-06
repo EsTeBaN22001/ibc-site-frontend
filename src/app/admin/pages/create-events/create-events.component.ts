@@ -68,8 +68,7 @@ export class CreateEventsComponent {
       formData.date_end = this.datePipe.transform(formData.date_end, 'yyyy-MM-dd')
 
       this.eventsService.createEvent(formData).subscribe(newEvent => {
-        // this.router.navigate(['/admin/eventos'])
-        console.log(newEvent)
+        this.router.navigate(['/admin/eventos'])
       })
     } else {
       this.eventForm.markAllAsTouched()
