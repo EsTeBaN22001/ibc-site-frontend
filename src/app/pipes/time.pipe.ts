@@ -10,6 +10,7 @@ export class TimePipe implements PipeTransform {
 
     const [hours, minutes, seconds] = value.split(':').map(Number)
     const date = new Date()
+    date.setHours(hours, minutes, seconds)
 
     const locale = 'es'
     const options: Intl.DateTimeFormatOptions = {

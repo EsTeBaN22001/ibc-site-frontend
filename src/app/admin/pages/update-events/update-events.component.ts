@@ -104,9 +104,7 @@ export class UpdateEventsComponent {
       formData.date_start = this.datePipe.transform(formData.date_start, 'yyyy-MM-dd') || ''
       formData.date_end = this.datePipe.transform(formData.date_end, 'yyyy-MM-dd') || ''
 
-      // console.log(formData)
-
-      this.eventsService.updateEvent(formData, this.eventId).subscribe(updatedEvent => {
+      this.eventsService.updateEvent(formData, this.eventId).subscribe(() => {
         this.router.navigate(['/admin/eventos'])
       })
     } else {

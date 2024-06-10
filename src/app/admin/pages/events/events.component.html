@@ -59,8 +59,8 @@
 
       <ng-container matColumnDef="Eliminar">
         <th mat-header-cell *matHeaderCellDef> Eliminar </th>
-        <td mat-cell *matCellDef="let element"> <a [routerLink]="['eliminar', element.id]"
-            class="delete-event-button"><span class="icon"><i class="fa-solid fa-trash"></i></span>Eliminar</a>
+        <td mat-cell *matCellDef="let element"> <button (click)="deleteEvent(element.id)"
+            class="delete-event-button"><span class="icon"><i class="fa-solid fa-trash"></i></span>Eliminar</button>
         </td>
       </ng-container>
 

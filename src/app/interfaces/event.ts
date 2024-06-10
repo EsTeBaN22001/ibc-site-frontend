@@ -10,3 +10,8 @@ export interface Event {
   aditional_info: string
   visible?: number
 }
+
+export interface ResponseDeleteEvent {
+  success: boolean
+  message: string
+}

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { environment } from '../../environments/environment'
 import { HttpClient } from '@angular/common/http'
-import { Event } from '../interfaces/event'
+import { Event, ResponseDeleteEvent } from '../interfaces/event'
 import { checkToken } from '../interceptors/token.interceptor'
 
 @Injectable({
@@ -26,5 +26,9 @@ export class EventsService {
 
   updateEvent(event: Event, id: string) {
     return this.http.post<Event>(`${this.baseUrl}/update/${id}`, event, { context: checkToken() })
+  }
+
+  deleteEvent(id: string) {
+    return this.http.delete<ResponseDeleteEvent>(`${this.baseUrl}/delete/${id}`, { context: checkToken() })
   }
 }
