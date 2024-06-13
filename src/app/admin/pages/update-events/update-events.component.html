@@ -47,9 +47,23 @@
         <input matInput formControlName="aditional_info">
       </mat-form-field>
 
+      <div class="previous-image-container">
+
+        <h3>Imagen actual</h3>
+
+        @if (imageSrcToHtml){
+        <img [src]="imageSrcToHtml" *ngIf="imageSrcToHtml !== ''">
+        }@else {
+        <p class="no-image-message" *ngIf="imageSrcToHtml === ''">No hay imagen actual</p>
+        }
+
+
+      </div>
+
       <div class="image-input-container">
-        <label>Imagen del evento (Opcional)</label>
-        <input type="file" formControlName="image">
+        <label for="image">Imagen del evento (Opcional)</label>
+        <input type="file" id="image" accept="image/png, image/jpeg, image/webp, image/jpg"
+          (change)="onFileSelected($event)">
       </div>
 
       <button class="submit-button" type="submit">Guardar cambios</button>

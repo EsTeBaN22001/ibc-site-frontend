@@ -25,6 +25,7 @@
 
 .edit-event-button {
   @include m.button(v.$blue, v.$white);
+  padding: 0.619rem 1rem !important;
 }
 
 .delete-event-button {
