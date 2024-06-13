@@ -67,7 +67,8 @@ export class UpdateEventsComponent {
           time_end: [''],
           ubication: ['', Validators.required],
           price: [''],
-          aditional_info: ['']
+          aditional_info: [''],
+          image: ['']
         })
         this.eventId = id
         this.getEvent(id)
@@ -89,7 +90,8 @@ export class UpdateEventsComponent {
           time_end: event.time_end || '',
           ubication: event.ubication || '',
           price: event.price || '',
-          aditional_info: event.aditional_info || ''
+          aditional_info: event.aditional_info || '',
+          image: event.image_url || ''
         })
       },
       error: error => {

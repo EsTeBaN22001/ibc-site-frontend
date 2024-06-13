@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card'
 import { DatePipe } from '@angular/common'
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter'
 import { EventsService } from '../../../services/events.service'
+import Swal from 'sweetalert2'
 import { Router } from '@angular/router'
 
 export const MY_FORMATS = {
@@ -47,6 +48,7 @@ export const MY_FORMATS = {
 })
 export class CreateEventsComponent {
   eventForm: FormGroup
+  eventImageFile!: File
 
   constructor(private fb: FormBuilder, private datePipe: DatePipe, private eventsService: EventsService, private router: Router) {
     this.eventForm = this.fb.group({
@@ -61,15 +63,49 @@ export class CreateEventsComponent {
     })
   }
 
+  onFileSelected(event: any) {
+    const imageFile = <File>event.target.files[0]
+
+    if (imageFile) {
+      const allowedTypes = ['image/png', 'image/jpeg', 'image/webp', 'image/jpg']
+
+      if (!allowedTypes.includes(imageFile.type)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Formato inválido',
+          text: 'Formatos aceptados: png, jpeg, webp, jpg'
+        })
+        return
+      }
+    }
+    this.eventImageFile = imageFile
+  }
+
   onSubmit() {
     if (this.eventForm.valid) {
       const formData = this.eventForm.value
-      formData.date_start = this.datePipe.transform(formData.date_start, 'yyyy-MM-dd')
-      formData.date_end = this.datePipe.transform(formData.date_end, 'yyyy-MM-dd')
+      formData.date_start = this.datePipe.transform(formData.date_start, 'yyyy-MM-dd') || ''
+      formData.date_end = this.datePipe.transform(formData.date_end, 'yyyy-MM-dd') || ''
 
-      this.eventsService.createEvent(formData).subscribe(newEvent => {
-        this.router.navigate(['/admin/eventos'])
-      })
+      if (this.eventImageFile) {
+        this.eventsService.uploadImage(this.eventImageFile).subscribe({
+          next: res => {
+            if (res.imageUrl) {
+              formData.image_url = res.imageUrl
+              this.eventsService.createEvent(formData).subscribe(() => {
+                this.router.navigate(['/admin/eventos'])
+              })
+            }
+          },
+          error: () => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Hubo un error al subir la imagen'
+            })
+          }
+        })
+      }
     } else {
       this.eventForm.markAllAsTouched()
     }

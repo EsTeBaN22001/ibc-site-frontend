@@ -8,6 +8,7 @@ export interface Event {
   ubication: string
   price?: string
   aditional_info: string
+  image_url?: string
   visible?: number
 }
 

@@ -23,3 +23,17 @@
     border-radius: 0.4rem;
   }
 }
+
+.image-input-container {
+  background-color: #ececec;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.4);
+  margin-bottom: 1.5rem;
+
+  label {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}

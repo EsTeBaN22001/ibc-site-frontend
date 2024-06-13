@@ -31,4 +31,10 @@ export class EventsService {
   deleteEvent(id: string) {
     return this.http.delete<ResponseDeleteEvent>(`${this.baseUrl}/delete/${id}`, { context: checkToken() })
   }
+
+  uploadImage(image: File) {
+    const fd = new FormData()
+    fd.append('image', image, image.name)
+    return this.http.post<{ imageUrl: string }>(`${this.baseUrl}/upload`, fd, { context: checkToken() })
+  }
 }

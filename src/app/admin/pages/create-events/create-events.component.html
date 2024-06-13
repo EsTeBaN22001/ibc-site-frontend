@@ -47,6 +47,12 @@
         <input matInput formControlName="aditional_info">
       </mat-form-field>
 
+      <div class="image-input-container">
+        <label>Imagen del evento (Opcional)</label>
+        <input type="file" id="image" accept="image/png, image/jpeg, image/webp, image/jpg"
+          (change)="onFileSelected($event)">
+      </div>
+
       <button class="submit-button" type="submit">Crear Evento</button>
     </form>
   </mat-card>
