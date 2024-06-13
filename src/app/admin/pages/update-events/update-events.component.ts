@@ -7,10 +7,12 @@ import { MatInputModule } from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
-import { DatePipe } from '@angular/common'
+import { CommonModule, DatePipe } from '@angular/common'
 import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter'
 import { ActivatedRoute, Router } from '@angular/router'
 import { EventsService } from '../../../services/events.service'
+import Swal from 'sweetalert2'
+import { environment } from '../../../../environments/environment'
 
 export const MY_FORMATS = {
   parse: {
@@ -34,7 +36,8 @@ export const MY_FORMATS = {
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    CommonModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
@@ -47,7 +50,12 @@ export const MY_FORMATS = {
 })
 export class UpdateEventsComponent {
   eventForm!: FormGroup
+  event!: Event
   eventId!: string
+  eventImageFile!: File
+
+  imageUploadsUrl: string = environment.backendBasicUrl
+  imageSrcToHtml: string = ''
 
   constructor(
     private fb: FormBuilder,
@@ -68,7 +76,7 @@ export class UpdateEventsComponent {
           ubication: ['', Validators.required],
           price: [''],
           aditional_info: [''],
-          image: ['']
+          image_url: ['']
         })
         this.eventId = id
         this.getEvent(id)
@@ -91,13 +99,38 @@ export class UpdateEventsComponent {
           ubication: event.ubication || '',
           price: event.price || '',
           aditional_info: event.aditional_info || '',
-          image: event.image_url || ''
+          image_url: event.image_url || ''
         })
+
+        if (event.image_url) {
+          this.imageSrcToHtml = `${this.imageUploadsUrl + event.image_url}`
+        }
       },
-      error: error => {
+      error: () => {
         this.router.navigate(['/admin/eventos'])
       }
     })
+  }
+
+  onFileSelected(event: any) {
+    const imageFile = <File>event.target.files[0]
+
+    if (imageFile) {
+      const allowedTypes = ['image/png', 'image/jpeg', 'image/webp', 'image/jpg']
+
+      if (!allowedTypes.includes(imageFile.type)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Formato inválido',
+          text: 'Formatos aceptados: png, jpeg, webp, jpg'
+        })
+        return
+      }
+    }
+    this.eventImageFile = imageFile
+    this.eventForm.patchValue({ image: `/uploads/${imageFile.name}` })
+    const imgPreview = URL.createObjectURL(imageFile)
+    this.imageSrcToHtml = `${imgPreview}`
   }
 
   onSubmit() {
@@ -105,6 +138,26 @@ export class UpdateEventsComponent {
       const formData = this.eventForm.value
       formData.date_start = this.datePipe.transform(formData.date_start, 'yyyy-MM-dd') || ''
       formData.date_end = this.datePipe.transform(formData.date_end, 'yyyy-MM-dd') || ''
+
+      if (this.eventImageFile) {
+        this.eventsService.uploadImage(this.eventImageFile).subscribe({
+          next: res => {
+            if (res.imageUrl) {
+              formData.image_url = res.imageUrl
+              this.eventsService.updateEvent(formData, this.eventId).subscribe(() => {
+                this.router.navigate(['/admin/eventos'])
+              })
+            }
+          },
+          error: () => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Hubo un error al subir la imagen'
+            })
+          }
+        })
+      }
 
       this.eventsService.updateEvent(formData, this.eventId).subscribe(() => {
         this.router.navigate(['/admin/eventos'])
