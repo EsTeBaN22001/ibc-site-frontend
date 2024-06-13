@@ -32,6 +32,7 @@ export class EventsComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
+    if (!this.paginator) return
     this.dataSource.paginator = this.paginator
     this.paginator._intl.itemsPerPageLabel = 'Eventos por página'
     this.paginator._intl.getRangeLabel = (page: number, pageSize: number, length: number) => ''
