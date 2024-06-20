@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:5000/api',
-  backendBasicUrl: 'http://localhost:5000'
+  apiUrl: 'https://ibc-site-backend-production.up.railway.app/api',
+  backendBasicUrl: 'https://ibc-site-backend-production.up.railway.app'
 }
