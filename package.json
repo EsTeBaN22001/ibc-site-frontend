@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "dev": "ng serve",
     "build": "ng build",
+    "start": "serve dist -s -n -L $PORT",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -26,6 +27,7 @@
     "ngx-lightbox": "^3.0.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~7.8.0",
+    "serve": "^14.2.3",
     "sweetalert2": "^11.11.1",
     "swiper": "^11.0.7",
     "tslib": "^2.3.0",

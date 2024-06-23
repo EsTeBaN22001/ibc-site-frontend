@@ -29,31 +29,38 @@
 
     .date-content {
       display: flex;
+      align-items: center;
       column-gap: 2rem;
 
       .date-circle {
+        flex-shrink: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: lighten(v.$principalColor, 50);
-        padding: 2rem;
+        background-color: lighten(v.$principalColor, 50%);
+        width: 8rem; // Igualar el width y height para que sea un círculo perfecto
+        height: 8rem; // Igualar el width y height para que sea un círculo perfecto
         border-radius: 50%;
+        padding: 1rem; // Ajustar padding para evitar que desborde el círculo
+
         .date {
           display: flex;
           flex-direction: column;
           align-items: center;
-          width: 4rem;
-          height: 4rem;
-          color: lighten(v.$principalColor, 10);
+          justify-content: center;
+          text-align: center;
+          color: lighten(v.$principalColor, 10%);
           font-weight: 500;
 
           .number {
             font-size: 2.5rem;
           }
+
           .month {
             margin-top: -0.5rem;
             font-size: 1.5rem;
           }
+
           .calendar-icon {
             display: flex;
             justify-content: center;
@@ -63,6 +70,7 @@
           }
         }
       }
+
       .title-container {
         text-align: start;
         padding-top: 1rem;
