@@ -95,6 +95,7 @@ export class CreateEventsComponent {
               this.eventsService.createEvent(formData).subscribe(() => {
                 this.router.navigate(['/admin/eventos'])
               })
+              return
             }
           },
           error: () => {
@@ -105,11 +106,11 @@ export class CreateEventsComponent {
             })
           }
         })
+      } else {
+        this.eventsService.createEvent(formData).subscribe(() => {
+          this.router.navigate(['/admin/eventos'])
+        })
       }
-
-      this.eventsService.createEvent(formData).subscribe(() => {
-        this.router.navigate(['/admin/eventos'])
-      })
     } else {
       this.eventForm.markAllAsTouched()
     }
