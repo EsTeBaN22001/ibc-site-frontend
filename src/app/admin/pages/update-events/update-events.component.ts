@@ -52,7 +52,7 @@ export class UpdateEventsComponent {
   eventForm!: FormGroup
   event!: Event
   eventId!: string
-  eventImageFile!: File
+  eventImageFile!: File | null
 
   imageUploadsUrl: string = environment.backendBasicUrl
   imageSrcToHtml: string = ''
@@ -133,6 +133,29 @@ export class UpdateEventsComponent {
     this.imageSrcToHtml = `${imgPreview}`
   }
 
+  deleteImage() {
+    Swal.fire({
+      title: 'Eliminar imagen?',
+      text: 'Esta acción no se podrá revertir',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then(result => {
+      if (result.isConfirmed) {
+        const imgArray = this.imageSrcToHtml.split('/')
+        const imgName = imgArray[imgArray.length - 1]
+
+        this.eventsService.deleteImage(imgName).subscribe(() => {
+          this.imageSrcToHtml = ''
+          this.eventImageFile = null
+          this.eventForm.setValue({ image_url: '' })
+        })
+      }
+    })
+  }
+
   onSubmit() {
     if (this.eventForm.valid) {
       const formData = this.eventForm.value
@@ -144,6 +167,7 @@ export class UpdateEventsComponent {
           next: res => {
             if (res.imageUrl) {
               formData.image_url = res.imageUrl
+              console.log(formData)
               this.eventsService.updateEvent(formData, this.eventId).subscribe(() => {
                 this.router.navigate(['/admin/eventos'])
               })
@@ -157,11 +181,13 @@ export class UpdateEventsComponent {
             })
           }
         })
+      } else {
+        formData.image_url = ''
+        console.log(formData)
+        this.eventsService.updateEvent(formData, this.eventId).subscribe(() => {
+          this.router.navigate(['/admin/eventos'])
+        })
       }
-
-      this.eventsService.updateEvent(formData, this.eventId).subscribe(() => {
-        this.router.navigate(['/admin/eventos'])
-      })
     } else {
       this.eventForm.markAllAsTouched()
     }

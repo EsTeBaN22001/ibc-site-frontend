@@ -37,4 +37,12 @@ export class EventsService {
     fd.append('image', image, image.name)
     return this.http.post<{ imageUrl: string }>(`${this.baseUrl}/upload`, fd, { context: checkToken() })
   }
+
+  deleteImage(img: string) {
+    return this.http.post<{ success: boolean; message: string }>(
+      `${this.baseUrl}/delete-image`,
+      { img },
+      { context: checkToken() }
+    )
+  }
 }

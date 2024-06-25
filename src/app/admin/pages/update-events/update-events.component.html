@@ -52,7 +52,11 @@
         <h3>Imagen actual</h3>
 
         @if (imageSrcToHtml){
-        <img [src]="imageSrcToHtml" *ngIf="imageSrcToHtml !== ''">
+        <div class="img-container">
+          <img class="image" [src]="imageSrcToHtml" *ngIf="imageSrcToHtml !== ''">
+          <button type="button" (click)="deleteImage()" class="delete-image-button"><i
+              class="fa-solid fa-xmark"></i></button>
+        </div>
         }@else {
         <p class="no-image-message" *ngIf="imageSrcToHtml === ''">No hay imagen actual</p>
         }
