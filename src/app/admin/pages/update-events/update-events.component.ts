@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { EventsService } from '../../../services/events.service'
 import Swal from 'sweetalert2'
 import { environment } from '../../../../environments/environment'
+import { MatCheckboxModule } from '@angular/material/checkbox'
 
 export const MY_FORMATS = {
   parse: {
@@ -37,7 +38,8 @@ export const MY_FORMATS = {
     MatFormFieldModule,
     MatButtonModule,
     MatCardModule,
-    CommonModule
+    CommonModule,
+    MatCheckboxModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
@@ -70,6 +72,7 @@ export class UpdateEventsComponent {
         this.eventForm = this.fb.group({
           title: ['', Validators.required],
           date_start: ['', Validators.required],
+          recurrent: [''],
           date_end: [''],
           time_start: ['', Validators.required],
           time_end: [''],
@@ -93,6 +96,7 @@ export class UpdateEventsComponent {
         this.eventForm.patchValue({
           title: event.title || '',
           date_start: event.date_start || '',
+          recurrent: event.recurrent || '',
           date_end: event.date_end || '',
           time_start: event.time_start || '',
           time_end: event.time_end || '',
@@ -167,9 +171,23 @@ export class UpdateEventsComponent {
           next: res => {
             if (res.imageUrl) {
               formData.image_url = res.imageUrl
-              console.log(formData)
-              this.eventsService.updateEvent(formData, this.eventId).subscribe(() => {
-                this.router.navigate(['/admin/eventos'])
+              if (formData.recurrent === true) {
+                formData.recurrent = 1
+              } else {
+                formData.recurrent = 0
+              }
+              this.eventsService.updateEvent(formData, this.eventId).subscribe({
+                next: () => {
+                  this.router.navigate(['/admin/eventos'])
+                },
+                error: err => {
+                  console.log(err)
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Hubo un error al guardar el evento'
+                  })
+                }
               })
             }
           },
@@ -183,9 +201,24 @@ export class UpdateEventsComponent {
         })
       } else {
         formData.image_url = ''
+        if (formData.recurrent === true) {
+          formData.recurrent = 1
+        } else {
+          formData.recurrent = 0
+        }
         console.log(formData)
-        this.eventsService.updateEvent(formData, this.eventId).subscribe(() => {
-          this.router.navigate(['/admin/eventos'])
+        this.eventsService.updateEvent(formData, this.eventId).subscribe({
+          next: () => {
+            this.router.navigate(['/admin/eventos'])
+          },
+          error: err => {
+            console.log(err)
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Hubo un error al guardar el evento'
+            })
+          }
         })
       }
     } else {

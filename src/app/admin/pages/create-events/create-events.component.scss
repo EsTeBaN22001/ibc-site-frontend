@@ -16,6 +16,11 @@
     width: 100%;
   }
 
+  .recurrent-checkbox {
+    margin-bottom: 2rem;
+    color: v.$principalColor;
+  }
+
   .submit-button {
     @include m.button(v.$principalColor, v.$white);
     width: 100%;

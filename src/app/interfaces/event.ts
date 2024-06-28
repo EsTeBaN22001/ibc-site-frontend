@@ -10,6 +10,7 @@ export interface Event {
   aditional_info: string
   image_url?: string
   visible?: number
+  recurrent?: number
 }
 
 export interface ResponseDeleteEvent {

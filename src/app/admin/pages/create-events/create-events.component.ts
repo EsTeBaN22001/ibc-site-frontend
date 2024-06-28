@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core'
 import { MatInputModule } from '@angular/material/input'
+import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
@@ -35,7 +36,8 @@ export const MY_FORMATS = {
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
@@ -54,6 +56,7 @@ export class CreateEventsComponent {
     this.eventForm = this.fb.group({
       title: ['', Validators.required],
       date_start: ['', Validators.required],
+      recurrent: [''],
       date_end: [''],
       time_start: ['', Validators.required],
       time_end: [''],
@@ -92,8 +95,23 @@ export class CreateEventsComponent {
           next: res => {
             if (res.imageUrl) {
               formData.image_url = res.imageUrl
-              this.eventsService.createEvent(formData).subscribe(() => {
-                this.router.navigate(['/admin/eventos'])
+              if (formData.recurrent === true) {
+                formData.recurrent = 1
+              } else {
+                formData.recurrent = 0
+              }
+              this.eventsService.createEvent(formData).subscribe({
+                next: () => {
+                  this.router.navigate(['/admin/eventos'])
+                },
+                error: err => {
+                  console.log(err)
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Hubo un error al crear el evento'
+                  })
+                }
               })
               return
             }
@@ -107,8 +125,23 @@ export class CreateEventsComponent {
           }
         })
       } else {
-        this.eventsService.createEvent(formData).subscribe(() => {
-          this.router.navigate(['/admin/eventos'])
+        if (formData.recurrent === true) {
+          formData.recurrent = 1
+        } else {
+          formData.recurrent = 0
+        }
+        this.eventsService.createEvent(formData).subscribe({
+          next: () => {
+            this.router.navigate(['/admin/eventos'])
+          },
+          error: err => {
+            console.log(err)
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Hubo un error al crear el evento'
+            })
+          }
         })
       }
     } else {
