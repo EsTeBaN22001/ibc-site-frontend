@@ -56,7 +56,7 @@ export class CreateEventsComponent {
     this.eventForm = this.fb.group({
       title: ['', Validators.required],
       date_start: ['', Validators.required],
-      recurrent: [''],
+      recurrent: [null],
       date_end: [''],
       time_start: ['', Validators.required],
       time_end: [''],
@@ -96,9 +96,9 @@ export class CreateEventsComponent {
             if (res.imageUrl) {
               formData.image_url = res.imageUrl
               if (formData.recurrent === true) {
-                formData.recurrent = 1
+                formData.recurrent = '1'
               } else {
-                formData.recurrent = 0
+                formData.recurrent = null
               }
               this.eventsService.createEvent(formData).subscribe({
                 next: () => {
@@ -126,9 +126,9 @@ export class CreateEventsComponent {
         })
       } else {
         if (formData.recurrent === true) {
-          formData.recurrent = 1
+          formData.recurrent = '1'
         } else {
-          formData.recurrent = 0
+          formData.recurrent = null
         }
         this.eventsService.createEvent(formData).subscribe({
           next: () => {

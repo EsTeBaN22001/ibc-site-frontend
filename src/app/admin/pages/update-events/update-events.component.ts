@@ -72,7 +72,7 @@ export class UpdateEventsComponent {
         this.eventForm = this.fb.group({
           title: ['', Validators.required],
           date_start: ['', Validators.required],
-          recurrent: [''],
+          recurrent: [null],
           date_end: [''],
           time_start: ['', Validators.required],
           time_end: [''],
@@ -96,7 +96,7 @@ export class UpdateEventsComponent {
         this.eventForm.patchValue({
           title: event.title || '',
           date_start: event.date_start || '',
-          recurrent: event.recurrent || '',
+          recurrent: event.recurrent || null,
           date_end: event.date_end || '',
           time_start: event.time_start || '',
           time_end: event.time_end || '',
@@ -172,9 +172,9 @@ export class UpdateEventsComponent {
             if (res.imageUrl) {
               formData.image_url = res.imageUrl
               if (formData.recurrent === true) {
-                formData.recurrent = 1
+                formData.recurrent = '1'
               } else {
-                formData.recurrent = 0
+                formData.recurrent = null
               }
               this.eventsService.updateEvent(formData, this.eventId).subscribe({
                 next: () => {
@@ -202,9 +202,9 @@ export class UpdateEventsComponent {
       } else {
         formData.image_url = ''
         if (formData.recurrent === true) {
-          formData.recurrent = 1
+          formData.recurrent = '1'
         } else {
-          formData.recurrent = 0
+          formData.recurrent = null
         }
         console.log(formData)
         this.eventsService.updateEvent(formData, this.eventId).subscribe({
