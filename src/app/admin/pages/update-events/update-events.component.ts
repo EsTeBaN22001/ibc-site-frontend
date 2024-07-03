@@ -200,13 +200,11 @@ export class UpdateEventsComponent {
           }
         })
       } else {
-        formData.image_url = ''
         if (formData.recurrent === true) {
           formData.recurrent = '1'
         } else {
           formData.recurrent = null
         }
-        console.log(formData)
         this.eventsService.updateEvent(formData, this.eventId).subscribe({
           next: () => {
             this.router.navigate(['/admin/eventos'])
