@@ -9,7 +9,7 @@
       <div class="date-content">
         <div class="date-circle">
           <div class="date">
-            @if(event.date_start){
+            @if(event.date_start && event.recurrent == 0){
             <span class="number">{{event.date_start | date : 'dd'}}</span>
             <span class="month">{{event.date_start | date : 'LLL'}}</span>
             }@else {
@@ -33,6 +33,8 @@
             @if(event.date_end){
             <p>{{event.date_start | date: 'dd'}} y {{event.date_end | date: 'dd'}} de {{event.date_start | date :
               'LLLL'}}</p>
+            }@else if(event.date_start && event.recurrent === 0){
+            <p>Todos los {{event.date_start | date : 'EEEE'}}</p>
             }@else {
             <p>{{event.date_start | date: 'dd'}} de {{event.date_start | date : 'LLLL'}}</p>
             }

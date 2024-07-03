@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { LightboxModule, Lightbox } from 'ngx-lightbox'
+import { LightboxModule, Lightbox, IAlbum } from 'ngx-lightbox'
 import { EventsService } from '../../../services/events.service'
 import { environment } from '../../../../environments/environment'
 
@@ -8,30 +8,28 @@ import { environment } from '../../../../environments/environment'
   standalone: true,
   imports: [LightboxModule],
   templateUrl: './events-images.component.html',
-  styleUrl: './events-images.component.scss'
+  styleUrls: ['./events-images.component.scss']
 })
 export class EventsImagesComponent implements OnInit {
-  albums: any = []
-  eventsImages: string[] = []
+  albums: IAlbum[] = []
+  eventsImages: any[] = []
   imageUploadsUrl: string = environment.backendBasicUrl
 
-  constructor(private lightbox: Lightbox, private eventsService: EventsService) {
-    for (let i = 0; i <= 5; i++) {
-      const src = 'assets/ministries/grupo-hombres.webp'
-      const caption = 'Image Caption'
-      const album = {
-        src: src,
-        caption: caption
-      }
-
-      this.albums.push(album)
-    }
-  }
+  constructor(private lightbox: Lightbox, private eventsService: EventsService) {}
 
   ngOnInit(): void {
     this.eventsService.getEvents().subscribe({
       next: events => {
-        events.map(event => (event.image_url ? this.eventsImages.push(`${environment.backendBasicUrl + event.image_url}`) : null))
+        events.forEach(event => {
+          if (event.image_url) {
+            const imageSrc = `${this.imageUploadsUrl + event.image_url}`
+            this.albums.push({
+              src: imageSrc,
+              caption: event.title || 'Evento sin título',
+              thumb: imageSrc
+            })
+          }
+        })
       },
       error: err => {
         console.log(err)

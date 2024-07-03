@@ -1,12 +1,10 @@
-@if(eventsImages.length <=0){<p class="no-events-text">No hay imágenes de eventos disponibles</p>
-  }@else {
+@if(albums.length <=0) { <p class="no-events-text">No hay imágenes de eventos disponibles</p>
+  } @else {
   <div class="images-container">
-
-    @for (image of eventsImages; track image; let i = $index){
+    @for (image of albums; track image; let i = $index) {
     <div class="image">
-      <img [src]="image" (click)="open(i)" />
+      <img [src]="image.src" (click)="open(i)" />
     </div>
     }
-
   </div>
   }
