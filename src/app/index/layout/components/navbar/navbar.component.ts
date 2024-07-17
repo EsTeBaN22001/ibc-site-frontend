@@ -28,6 +28,5 @@ export class NavbarComponent implements OnInit {
 
   showNav() {
     this.showNavbar = !this.showNavbar
-    console.log(this.showNavbar)
   }
 }

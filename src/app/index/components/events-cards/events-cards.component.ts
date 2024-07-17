@@ -21,9 +21,7 @@ export class EventsCardsComponent implements OnInit {
       next: events => {
         this.events = events
       },
-      error: err => {
-        console.log(err)
-      }
+      error: err => {}
     })
   }
 }

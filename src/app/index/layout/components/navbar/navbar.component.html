@@ -1,7 +1,7 @@
 <section class="navbar-container" [ngClass]="{transparent: isNavbarTransparent, solid: !isNavbarTransparent}">
   <div class="navbar">
     <div class="logo-container">
-      <img src="assets/logo-ibc.png" alt="ibc logo">
+      <a [routerLink]="['/']"><img src="assets/logo-ibc.png" alt="ibc logo"></a>
     </div>
     <nav class="nav" [ngClass]="{'show': showNavbar}">
       <a [routerLink]="['/']">Inicio</a>

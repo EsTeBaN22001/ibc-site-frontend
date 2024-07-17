@@ -80,10 +80,10 @@
         z-index: 10;
         flex-direction: column;
         transition: transform 0.3s ease;
-        transform: translateX(128%);
+        transform: translateX(130%);
 
         &.show {
-          transform: translateX(28%);
+          transform: translateX(29.7%);
         }
 
         a {

@@ -105,7 +105,6 @@ export class CreateEventsComponent {
                   this.router.navigate(['/admin/eventos'])
                 },
                 error: err => {
-                  console.log(err)
                   Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -135,7 +134,6 @@ export class CreateEventsComponent {
             this.router.navigate(['/admin/eventos'])
           },
           error: err => {
-            console.log(err)
             Swal.fire({
               icon: 'error',
               title: 'Oops...',

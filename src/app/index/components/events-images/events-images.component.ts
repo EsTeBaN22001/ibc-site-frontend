@@ -31,9 +31,7 @@ export class EventsImagesComponent implements OnInit {
           }
         })
       },
-      error: err => {
-        console.log(err)
-      }
+      error: err => {}
     })
   }
 

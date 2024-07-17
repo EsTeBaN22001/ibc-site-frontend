@@ -33,7 +33,7 @@
           <li><span class="icon"><i class="fa-solid fa-calendar-days"></i></span>
 
             @if(event.date_end){
-            <p>{{event.date_start | date: 'dd'}} y {{event.date_end | date: 'dd'}} de {{event.date_start | date :
+            <p>{{event.date_start | date: 'dd'}} al {{event.date_end | date: 'dd'}} de {{event.date_start | date :
               'LLLL'}}</p>
             }@else if(event.date_start && event.recurrent == 1){
             <p>Todos los {{event.date_start | date : 'EEEE'}}</p>
