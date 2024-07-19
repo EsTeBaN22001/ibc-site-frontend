@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment'
 import { ResponseLogin } from '../interfaces/responseLogin'
 import { tap } from 'rxjs'
 import { TokenService } from './token.service'
+import { Router } from '@angular/router'
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { TokenService } from './token.service'
 export class LoginService {
   private baseUrl = `${environment.apiUrl}/auth`
 
-  constructor(private http: HttpClient, private tokenService: TokenService) {}
+  constructor(private http: HttpClient, private tokenService: TokenService, private router: Router) {}
 
   login(username: string, password: string) {
     return this.http
@@ -28,5 +29,6 @@ export class LoginService {
 
   logout() {
     this.tokenService.removeToken()
+    this.router.navigate(['/'])
   }
 }

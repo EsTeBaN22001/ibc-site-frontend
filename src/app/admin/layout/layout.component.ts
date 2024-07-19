@@ -21,6 +21,5 @@ export class LayoutComponent {
 
   logout() {
     this.loginService.logout()
-    window.location.reload()
   }
 }
