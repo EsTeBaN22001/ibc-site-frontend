@@ -1,5 +1,25 @@
+<section class="section container-sm">
+  <h1 class="admin-page-title">Sección de administración</h1>
+
+  <div class="meeting-schedule-container">
+    <h2>Horario de las reuniones</h2>
+    <form [formGroup]="meetingScheduleForm" (ngSubmit)="updateMeetingSchedule()" class="meeting-schedule-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Reunión mañana</mat-label>
+        <input matInput formControlName="morning" type="time" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Reunión tarde</mat-label>
+        <input matInput formControlName="afternoon" type="time" required>
+      </mat-form-field>
+      <button class="submit-button" type="submit">Guardar</button>
+    </form>
+  </div>
+</section>
+
 <section class="section-sm container-sm">
-  <h1>Eventos actuales</h1>
+  <h2>Eventos actuales</h2>
   <app-events-cards></app-events-cards>
 </section>
 

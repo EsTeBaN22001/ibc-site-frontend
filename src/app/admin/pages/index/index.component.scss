@@ -1,0 +1,33 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.admin-page-title {
+  font-size: 4rem;
+}
+
+.meeting-schedule-container {
+  max-width: 50%;
+  margin: 3rem auto 0 auto;
+  .meeting-schedule-form {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: start;
+  }
+}
+
+.submit-button {
+  @include m.button(v.$principalColor, v.$white);
+}
+
+.mat-mdc-form-field-subscript-wrapper::before {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.mat-mdc-form-field-bottom-align::before {
+  display: none;
+  width: 0;
+  height: 0;
+}
