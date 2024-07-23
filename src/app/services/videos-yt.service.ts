@@ -18,8 +18,7 @@ export class VideosYTService {
     return this.http.get<any>(this.API_YT_URL_LAST_3).pipe(
       map(response => response.items),
       map(items => items.filter((item: any) => !item.snippet.title.includes('Celebremos'))),
-      map(items => items.slice(0, 3)),
-      tap(items => console.log(items))
+      map(items => items.slice(0, 3))
     )
   }
 }

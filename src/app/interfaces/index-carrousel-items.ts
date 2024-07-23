@@ -26,7 +26,7 @@ export const indexCarrouselItems: indexCarrouselItem[] = [
     text: 'Cada semana, nos reunimos para explorar la fe de una manera divertida y relevante para los más pequeños. A través de historias bíblicas emocionantes, canciones alegres y actividades interactivas, los niños aprenderán sobre el amor de Dios y cómo pueden aplicarlo en sus vidas.',
     urlImg: 'assets/ministries/gi.webp',
     imgAlt: 'Imágen de reunión de generación impacto',
-    date: 'Domingo 10hs | 20hs'
+    date: 'Domingo 10hs | 19hs'
   },
   {
     title: 'Pre adolescentes',
