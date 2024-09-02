@@ -7,8 +7,6 @@ import { map, tap } from 'rxjs'
 })
 export class VideosYTService {
   private API_KEY_YT: string = 'AIzaSyDyGlsaMY-oTbBKF9tNt-Hvf4hwMhZb9_8'
-  private CHANNEL_ID: string = 'UCm-EMV6cioi0Za2D2HXbuxA'
-  private UPLOADS_ID: string = 'UUm-EMV6cioi0Za2D2HXbuxA'
   private maxResults: number = 7
   private API_YT_URL_LAST_3: string = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${this.maxResults}&playlistId=UUm-EMV6cioi0Za2D2HXbuxA&key=${this.API_KEY_YT}`
 

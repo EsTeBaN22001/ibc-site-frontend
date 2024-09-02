@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common'
-import { Component } from '@angular/core'
-import { RouterLink, RouterOutlet } from '@angular/router'
+import { Component, OnInit } from '@angular/core'
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router'
 import { LoginService } from '../../services/login.service'
+import { filter } from 'rxjs/operators'
 
 @Component({
   selector: 'app-layout',
@@ -10,10 +11,18 @@ import { LoginService } from '../../services/login.service'
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
   showMenu: boolean = false
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) {}
+
+  ngOnInit() {
+    this.router.events.pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd)).subscribe({
+      next: () => {
+        this.showMenu = false
+      }
+    })
+  }
 
   toggleShowMenu() {
     this.showMenu = !this.showMenu

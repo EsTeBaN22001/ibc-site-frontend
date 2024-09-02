@@ -22,27 +22,21 @@
     flex-direction: column;
     justify-content: space-between;
 
-    .logo-container {
-      margin: 0 auto;
-
-      .img-container {
-        height: 7rem;
-      }
-
-      .icon-container {
-        font-size: 3rem;
-        display: none;
-      }
-
+    .header-container {
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      .icon-container {
-        display: inline-block;
+      .logo-container {
+        .img-container {
+          height: 7rem;
+        }
       }
-      @include m.tablet {
+
+      .icon-container {
+        font-size: 3rem;
+        color: v.$white;
       }
     }
 
