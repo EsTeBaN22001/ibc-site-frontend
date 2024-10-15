@@ -65,7 +65,8 @@
 
 @include m.tablet {
   .navbar-container {
-    z-index: 10;
+    width: 90%;
+    transform: translateX(-50%);
 
     .navbar {
       .nav {
@@ -74,7 +75,7 @@
         height: 100vh;
         position: absolute;
         top: -2rem;
-        left: -50%;
+        left: -38.85%;
         margin: 0;
         padding: 20rem 0;
         z-index: 10;

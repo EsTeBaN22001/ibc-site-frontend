@@ -15,10 +15,16 @@
     }
 
     @include m.tablet {
+      width: 70%;
+      justify-items: start;
       grid-template-columns: 1fr;
       grid-template-rows: repeat(2, 1fr);
       column-gap: 0;
       row-gap: 3rem;
+
+      // h3 {
+      //   text-align: center;
+      // }
     }
 
     .social-links {
@@ -35,6 +41,7 @@
         p {
           color: v.$white;
           font-size: 2rem;
+          margin: 0;
         }
       }
     }
@@ -53,6 +60,7 @@
           p {
             color: v.$white;
             font-size: 2rem;
+            margin: 0;
           }
         }
       }

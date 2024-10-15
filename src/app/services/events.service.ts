@@ -25,7 +25,7 @@ export class EventsService {
   }
 
   updateEvent(event: Event, id: string) {
-    return this.http.post<Event>(`${this.baseUrl}/update/${id}`, event, { context: checkToken() })
+    return this.http.put<Event>(`${this.baseUrl}/update/${id}`, event, { context: checkToken() })
   }
 
   deleteEvent(id: string) {
