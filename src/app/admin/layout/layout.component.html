@@ -1,13 +1,16 @@
 <div class="main">
   <aside class="sidebar-container">
-    <a [routerLink]="['/admin']" class="logo-container">
-      <div class="img-container">
-        <img src="assets/logo-ibc.png" alt="logo ibc">
-      </div>
+    <!-- Logo sin el ícono del menú -->
+    <div class="header-container">
+      <a [routerLink]="['/admin']" class="logo-container">
+        <div class="img-container">
+          <img src="assets/logo-ibc.png" alt="logo ibc">
+        </div>
+      </a>
       <span class="icon-container" (click)="toggleShowMenu()">
         <i class="fa-solid fa-bars"></i>
       </span>
-    </a>
+    </div>
     <ul class="options-list" [ngClass]="{show: showMenu}">
       <li class="option">
         <a class="link" [routerLink]="['/admin']">

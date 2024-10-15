@@ -28,5 +28,7 @@ export class NavbarComponent implements OnInit {
 
   showNav() {
     this.showNavbar = !this.showNavbar
+    const $body = document.body
+    $body.style.overflow = this.showNavbar === true ? 'hidden' : 'auto'
   }
 }
