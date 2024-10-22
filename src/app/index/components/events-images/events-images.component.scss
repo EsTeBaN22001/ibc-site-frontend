@@ -6,6 +6,10 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 
+  @include m.tablet {
+    grid-template-columns: 1fr;
+  }
+
   .image {
     border-radius: 2rem;
     overflow: hidden;
