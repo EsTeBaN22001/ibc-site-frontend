@@ -36,7 +36,8 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
               "./node_modules/ngx-lightbox/lightbox.css",
-              "./node_modules/sweetalert2/src/sweetalert2.scss"
+              "./node_modules/sweetalert2/src/sweetalert2.scss",
+              "./node_modules/.pnpm/aos@2.3.4/node_modules/aos/dist/aos.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/global-styles"]

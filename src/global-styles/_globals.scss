@@ -126,3 +126,16 @@ img {
 .swal2-popup {
   font-size: 1.6rem !important;
 }
+
+// Personalized ScrollBar
+body::-webkit-scrollbar {
+  width: 1.3rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: white;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: v.$principalColor;
+}
