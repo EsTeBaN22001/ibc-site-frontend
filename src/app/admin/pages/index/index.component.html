@@ -4,15 +4,17 @@
   <div class="meeting-schedule-container">
     <h2>Horario de las reuniones</h2>
     <form [formGroup]="meetingScheduleForm" (ngSubmit)="updateMeetingSchedule()" class="meeting-schedule-form">
-      <mat-form-field appearance="fill">
-        <mat-label>Reunión mañana</mat-label>
-        <input matInput formControlName="morning" type="time" required>
-      </mat-form-field>
+      <div class="inputs-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Turno mañana</mat-label>
+          <input matInput formControlName="morning" type="time" required>
+        </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Reunión tarde</mat-label>
-        <input matInput formControlName="afternoon" type="time" required>
-      </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Turno tarde</mat-label>
+          <input matInput formControlName="afternoon" type="time" required>
+        </mat-form-field>
+      </div>
       <button class="submit-button" type="submit">Guardar</button>
     </form>
   </div>
