@@ -73,16 +73,16 @@
           }
 
           .icon-container {
-            // width: 20%;
-            width: 3rem;
+            width: 4rem;
             margin-right: 1rem;
+            padding-bottom: 0.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
             color: v.$white;
             font-size: 3rem;
             transition: transform 0.3s ease;
-            text-align: center;
+            // text-align: center;
           }
 
           p {
