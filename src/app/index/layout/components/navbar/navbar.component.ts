@@ -12,12 +12,14 @@ import { RouterLink, Router } from '@angular/router'
 export class NavbarComponent implements OnInit {
   isNavbarTransparent: boolean = true
   showNavbar: boolean = false
+  $body = document.body
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.router.events.subscribe(() => {
       this.showNavbar = false
+      this.$body.style.overflow = 'scroll'
     })
   }
 
@@ -28,7 +30,6 @@ export class NavbarComponent implements OnInit {
 
   showNav() {
     this.showNavbar = !this.showNavbar
-    const $body = document.body
-    $body.style.overflow = this.showNavbar === true ? 'hidden' : 'auto'
+    this.$body.style.overflow = this.showNavbar === true ? 'hidden' : 'scroll'
   }
 }

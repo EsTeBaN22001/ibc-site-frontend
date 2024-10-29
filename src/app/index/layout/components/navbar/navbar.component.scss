@@ -71,7 +71,7 @@
     .navbar {
       .nav {
         background: v.$principalColor;
-        width: 100vw;
+        width: 110vw;
         height: 100vh;
         position: absolute;
         top: -2rem;
@@ -84,7 +84,7 @@
         transform: translateX(130%);
 
         &.show {
-          transform: translateX(29.7%);
+          transform: translateX(22.5%);
         }
 
         a {
