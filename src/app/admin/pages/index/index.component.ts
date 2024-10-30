@@ -8,11 +8,12 @@ import { CommonModule } from '@angular/common'
 import Swal from 'sweetalert2'
 import { MeetingScheduleService } from '../../../services/meeting-schedule.service'
 import { MeetingSchedule } from '../../../interfaces/meeting-schedule'
+import { RouterLink } from '@angular/router'
 
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [EventsCardsComponent, EventsImagesComponent, ReactiveFormsModule, MatInputModule, CommonModule],
+  imports: [EventsCardsComponent, EventsImagesComponent, ReactiveFormsModule, MatInputModule, CommonModule, RouterLink],
   templateUrl: './index.component.html',
   styleUrl: './index.component.scss'
 })
