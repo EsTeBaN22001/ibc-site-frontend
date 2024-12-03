@@ -13,6 +13,7 @@ import { TimePipe } from '../../../pipes/time.pipe'
 })
 export class EventsCardsComponent implements OnInit {
   events: Event[] = []
+  isLoading: boolean = true
 
   constructor(private eventsService: EventsService) {}
 
@@ -20,8 +21,11 @@ export class EventsCardsComponent implements OnInit {
     this.eventsService.getEvents().subscribe({
       next: events => {
         this.events = events
+        this.isLoading = false
       },
-      error: err => {}
+      error: err => {
+        this.isLoading = false
+      }
     })
   }
 }
