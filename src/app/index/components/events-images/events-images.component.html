@@ -1,10 +1,17 @@
-@if(albums.length <=0) { <p class="no-events-text">No hay imágenes de eventos disponibles</p>
-  } @else {
-  <div class="images-container">
-    @for (image of albums; track image; let i = $index) {
-    <div class="image">
-      <img [src]="image.src" (click)="open(i)" />
+<div *ngIf="isLoading" class="loader-container">
+  <i class="fa-solid fa-spinner fa-spin loader-icon"></i>
+</div>
+
+
+<div *ngIf="!isLoading">
+  @if(albums.length <=0) { <p class="no-events-text">No hay imágenes de eventos disponibles</p>
+    } @else {
+    <div class="images-container">
+      @for (image of albums; track image; let i = $index) {
+      <div class="image">
+        <img [src]="image.src" (click)="open(i)" />
+      </div>
+      }
     </div>
     }
-  </div>
-  }
+</div>

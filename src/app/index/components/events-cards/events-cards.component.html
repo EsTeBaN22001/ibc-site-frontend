@@ -1,72 +1,78 @@
-@if(events.length <= 0) { <p class="no-events-text">No hay eventos disponibles</p>
-  }@else {
-  <div class="events-container">
-    @for(event of events; track event.id){
-    <div class="event">
-      <div class="header">
-        <p>IBC</p>
-      </div>
-      <div class="date-content">
-        <div class="date-circle">
-          <div class="date">
-            @if(event.date_start && event.recurrent == 0){
-            <span class="number">{{event.date_start | date : 'dd'}}</span>
-            <span class="month">{{event.date_start | date : 'LLL'}}</span>
-            }@else if(event.recurrent == 1){
-            <span class="day-of-week">{{event.date_start | date : 'ccc'}}</span>
+<div *ngIf="isLoading" class="loader-container">
+  <i class="fa-solid fa-spinner fa-spin loader-icon"></i>
+</div>
+
+<div *ngIf="!isLoading">
+  @if(events.length <= 0) { <p class="no-events-text">No hay eventos disponibles</p>
+    }@else {
+    <div class="events-container">
+      @for(event of events; track event.id){
+      <div class="event">
+        <div class="header">
+          <p>IBC</p>
+        </div>
+        <div class="date-content">
+          <div class="date-circle">
+            <div class="date">
+              @if(event.date_start && event.recurrent == 0){
+              <span class="number">{{event.date_start | date : 'dd'}}</span>
+              <span class="month">{{event.date_start | date : 'LLL'}}</span>
+              }@else if(event.recurrent == 1){
+              <span class="day-of-week">{{event.date_start | date : 'ccc'}}</span>
+              }@else {
+              <span><i class="fa-solid fa-calendar-days"></i></span>
+              }
+            </div>
+          </div>
+          <div class="title-container">
+            <h3>{{event.title}}</h3>
+            @if(event.time_end){
+            <span>{{event.time_start | time : 'shortTime'}} - {{event.time_end | time : 'shortTime'}}</span>
             }@else {
-            <span><i class="fa-solid fa-calendar-days"></i></span>
+            <span>{{event.time_start | time : 'shortTime'}}</span>
             }
           </div>
         </div>
-        <div class="title-container">
-          <h3>{{event.title}}</h3>
-          @if(event.time_end){
-          <span>{{event.time_start | time : 'shortTime'}} - {{event.time_end | time : 'shortTime'}}</span>
-          }@else {
-          <span>{{event.time_start | time : 'shortTime'}}</span>
-          }
+        <div class="details">
+          <ul class="list">
+            <li><span class="icon"><i class="fa-solid fa-calendar-days"></i></span>
+
+              @if(event.date_end){
+              <p>{{event.date_start | date: 'dd'}} al {{event.date_end | date: 'dd'}} de {{event.date_start | date :
+                'LLLL'}}</p>
+              }@else if(event.date_start && event.recurrent == 1){
+              <p>Todos los {{event.date_start | date : 'EEEE'}}</p>
+              }@else {
+              <p>{{event.date_start | date: 'dd'}} de {{event.date_start | date : 'LLLL'}}</p>
+              }
+
+            </li>
+            <li><span class="icon"><i class="fa-regular fa-clock"></i></span>
+              @if(event.time_end){
+              <p>{{event.time_start | time : 'shortTime'}} - {{event.time_end | time : 'shortTime'}}</p>
+              }@else {
+              <p>{{event.time_start | time : 'shortTime'}}</p>
+              }
+            </li>
+            @if(event.ubication){
+            <li><span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+              <p>{{event.ubication}}</p>
+            </li>
+            }
+            @if(event.price){
+            <li><span class="icon"><i class="fa-solid fa-money-check-dollar"></i></span>
+              <p>${{event.price}}</p>
+            </li>
+            }
+            @if(event.aditional_info){
+            <li><span class="icon"><i class="fa-solid fa-circle-info"></i></span>
+              <p>{{event.aditional_info}}</p>
+            </li>
+            }
+          </ul>
         </div>
       </div>
-      <div class="details">
-        <ul class="list">
-          <li><span class="icon"><i class="fa-solid fa-calendar-days"></i></span>
-
-            @if(event.date_end){
-            <p>{{event.date_start | date: 'dd'}} al {{event.date_end | date: 'dd'}} de {{event.date_start | date :
-              'LLLL'}}</p>
-            }@else if(event.date_start && event.recurrent == 1){
-            <p>Todos los {{event.date_start | date : 'EEEE'}}</p>
-            }@else {
-            <p>{{event.date_start | date: 'dd'}} de {{event.date_start | date : 'LLLL'}}</p>
-            }
-
-          </li>
-          <li><span class="icon"><i class="fa-regular fa-clock"></i></span>
-            @if(event.time_end){
-            <p>{{event.time_start | time : 'shortTime'}} - {{event.time_end | time : 'shortTime'}}</p>
-            }@else {
-            <p>{{event.time_start | time : 'shortTime'}}</p>
-            }
-          </li>
-          @if(event.ubication){
-          <li><span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-            <p>{{event.ubication}}</p>
-          </li>
-          }
-          @if(event.price){
-          <li><span class="icon"><i class="fa-solid fa-money-check-dollar"></i></span>
-            <p>${{event.price}}</p>
-          </li>
-          }
-          @if(event.aditional_info){
-          <li><span class="icon"><i class="fa-solid fa-circle-info"></i></span>
-            <p>{{event.aditional_info}}</p>
-          </li>
-          }
-        </ul>
-      </div>
+      }
     </div>
     }
-  </div>
-  }
+</div>

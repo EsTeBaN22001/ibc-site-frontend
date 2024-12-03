@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core'
 import { LightboxModule, Lightbox, IAlbum } from 'ngx-lightbox'
 import { EventsService } from '../../../services/events.service'
 import { environment } from '../../../../environments/environment'
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-events-images',
   standalone: true,
-  imports: [LightboxModule],
+  imports: [LightboxModule, CommonModule],
   templateUrl: './events-images.component.html',
   styleUrls: ['./events-images.component.scss']
 })
 export class EventsImagesComponent implements OnInit {
+  isLoading: boolean = true
   albums: IAlbum[] = []
   eventsImages: any[] = []
   imageUploadsUrl: string = environment.backendBasicUrl
@@ -28,10 +30,13 @@ export class EventsImagesComponent implements OnInit {
               caption: event.title || 'Evento sin título',
               thumb: imageSrc
             })
+            this.isLoading = false
           }
         })
       },
-      error: err => {}
+      error: err => {
+        this.isLoading = false
+      }
     })
   }
 
