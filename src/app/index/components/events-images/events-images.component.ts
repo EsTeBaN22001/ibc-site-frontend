@@ -40,6 +40,11 @@ export class EventsImagesComponent implements OnInit {
     })
   }
 
+  handleImageError(index: number): void {
+    // Elimina la imagen del álbum si no se puede cargar
+    this.albums.splice(index, 1)
+  }
+
   open(index: number): void {
     this.lightbox.open(this.albums, index)
   }
